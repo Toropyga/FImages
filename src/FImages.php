@@ -1,7 +1,7 @@
 <?php
 /**
  * Класс работы с изображениями
- * @version 4.0.0
+ * @version 4.0.1
  * @author Yuri Frantsevich (FYN)
  * Date 03/11/2006
  * @copyright 2006-2021
