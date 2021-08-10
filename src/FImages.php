@@ -1156,7 +1156,7 @@ class FImages {
             return true;
         }
         else {
-            $tmpname = tempnam(TMP_DIR, $this->prefix); // 'MYIMG'
+            $tmpname = @tempnam(TMP_DIR, $this->prefix); // 'MYIMG'
             if (file_exists($tmpname)) unlink($tmpname);
             $ext = "php";
             if (function_exists("imagepng")) {
