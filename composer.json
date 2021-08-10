@@ -12,7 +12,7 @@
     "license": "MIT",
     "require": {
         "php": ">=5.1.0",
-        "ext-gd": ">=2.0",
+        "ext-gd": ">=2.0.18",
         "ext-mbstring": "*"
     },
     "require-dev": {
