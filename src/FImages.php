@@ -1,7 +1,7 @@
 <?php
 /**
  * Класс работы с изображениями
- * @version 4.0.2
+ * @version 4.0.3
  * @author Yuri Frantsevich (FYN)
  * Date 03/11/2006
  * @copyright 2006-2021
@@ -270,8 +270,11 @@ class FImages {
             /**
              * Временная директория для создания файла
              */
-            $tmp_dir = (isset($_ENV['TMP']) && $_ENV['TMP'])?$_ENV['TMP']:'';
-            if (!$tmp_dir) $tmp_dir = (isset($_ENV['TMPDIR']) && $_ENV['TMPDIR'])?$_ENV['TMPDIR']:'/tmp';
+            $tmp_dir = sys_get_temp_dir();
+            if (!file_exists($tmp_dir) || !is_dir($tmp_dir)) {
+                $tmp_dir = (isset($_ENV['TMP']) && $_ENV['TMP']) ? $_ENV['TMP'] : '';
+                if (!$tmp_dir) $tmp_dir = (isset($_ENV['TMPDIR']) && $_ENV['TMPDIR']) ? $_ENV['TMPDIR'] : '/tmp';
+            }
             define('TMP_DIR', $tmp_dir);
         }
         return true;
@@ -955,6 +958,7 @@ class FImages {
         $fonts=array();
 
         $included_files = get_included_files();
+        $fontsdir_absolute = '';
         foreach ($included_files as $filename) {
             if (preg_match("/FImages\.php$/ui", $filename)) {
                 $dir_path = preg_replace("/FImages\.php$/ui", "", $filename);
