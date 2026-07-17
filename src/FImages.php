@@ -1025,7 +1025,7 @@ class FImages {
             for($i=0;$i<$length;$i++){
                 $m=$font_metrics[$this->key_string[$i]];
 
-                $y=mt_rand(-$fluctuation_amplitude, $fluctuation_amplitude)+($height-$fontfile_height)/2+2;
+                $y=round(mt_rand(-$fluctuation_amplitude, $fluctuation_amplitude)+($height-$fontfile_height)/2+2);
 
                 if($no_spaces){
                     $shift=0;
@@ -1096,8 +1096,8 @@ class FImages {
 
         for($x=0;$x<$width;$x++){
             for($y=0;$y<$height;$y++){
-                $sx=$x+(sin($x*$rand1+$rand5)+sin($y*$rand3+$rand6))*$rand9-$width/2+$center+1;
-                $sy=$y+(sin($x*$rand2+$rand7)+sin($y*$rand4+$rand8))*$rand10;
+                $sx=round($x+(sin($x*$rand1+$rand5)+sin($y*$rand3+$rand6))*$rand9-$width/2+$center+1);
+                $sy=round($y+(sin($x*$rand2+$rand7)+sin($y*$rand4+$rand8))*$rand10);
 
                 if($sx<0 || $sy<0 || $sx>=$width-1 || $sy>=$height-1){
                     continue;
@@ -1113,9 +1113,9 @@ class FImages {
                     continue;
                 }
                 else if($color==0 && $color_x==0 && $color_y==0 && $color_xy==0){
-                    $newred=$foreground_color[0];
-                    $newgreen=$foreground_color[1];
-                    $newblue=$foreground_color[2];
+                    $newred=round($foreground_color[0]);
+                    $newgreen=round($foreground_color[1]);
+                    $newblue=round($foreground_color[2]);
                 }
                 else{
                     $frsx=$sx-floor($sx);
@@ -1133,9 +1133,9 @@ class FImages {
                     $newcolor=$newcolor/255;
                     $newcolor0=1-$newcolor;
 
-                    $newred=$newcolor0*$foreground_color[0]+$newcolor*$background_color[0];
-                    $newgreen=$newcolor0*$foreground_color[1]+$newcolor*$background_color[1];
-                    $newblue=$newcolor0*$foreground_color[2]+$newcolor*$background_color[2];
+                    $newred=round($newcolor0*$foreground_color[0]+$newcolor*$background_color[0]);
+                    $newgreen=round($newcolor0*$foreground_color[1]+$newcolor*$background_color[1]);
+                    $newblue=round($newcolor0*$foreground_color[2]+$newcolor*$background_color[2]);
                 }
 
                 imagesetpixel($img2, $x, $y, imagecolorallocate($img2, $newred, $newgreen, $newblue));
