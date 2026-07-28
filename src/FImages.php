@@ -1,10 +1,10 @@
 <?php
 /**
  * Класс работы с изображениями
- * @version 4.0.3
+ * @version 4.0.4
  * @author Yuri Frantsevich (FYN)
  * Date 03/11/2006
- * @copyright 2006-2021
+ * @copyright 2006-2026
  */
 
 namespace FYN;
