@@ -1,13 +1,13 @@
 <?php
 /**
  * Класс работы с изображениями
- * @version 4.0.5
- * @author Yuri Frantsevich (FYN)
+ * @version 5.0.0
+ * @author Yuri Frantsevich
  * Date 03/11/2006
  * @copyright 2006-2026
  */
 
-namespace FYN;
+namespace Toropyga;
 
 class FImages {
 
@@ -218,7 +218,7 @@ class FImages {
     /**
      * Текст для подписи капчи
      */
-    private $captcha_credits = '© FYN'; //SERVER_NAME; # if empty, HTTP_HOST will be shown
+    private $captcha_credits = '© Toropyga'; //SERVER_NAME; # if empty, HTTP_HOST will be shown
 
     /**
      * Выводить или нет под капчей строку подписи капчи
